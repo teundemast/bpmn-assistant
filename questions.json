@@ -1,0 +1,32 @@
+[
+  {
+    "domain_expert": "Alex",
+    "number_question": 1,
+    "question": "What do you do when an order comes in?",
+    "answer": "I search the item in the warehouse."
+  },
+  {
+    "domain_expert": "Maria",
+    "number_question": 1,
+    "question": "How do you decide whether an item is in stock?",
+    "answer": "I check the system first, and if it's unclear, I physically verify the shelf."
+  },
+  {
+    "domain_expert": "Alex",
+    "number_question": 2,
+    "question": "What happens if the item is not available?",
+    "answer": "We create a backorder and inform the customer."
+  },
+  {
+    "domain_expert": "Sven",
+    "number_question": 1,
+    "question": "Who performs the backorder process?",
+    "answer": "It’s usually the sales support team."
+  },
+  {
+    "domain_expert": "Maria",
+    "number_question": 2,
+    "question": "After picking the item, what is your next step?",
+    "answer": "I move the item to the packing station and update the system."
+  }
+]

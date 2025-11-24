@@ -35,6 +35,7 @@ const Models = Object.freeze({
   OPUS_4_1: 'claude-opus-4-1-20250805',
   GEMINI_2_5_PRO: 'gemini/gemini-2.5-pro',
   GEMINI_2_5_FLASH: 'gemini/gemini-2.5-flash',
+  GEMINI_2_0_FLASH_LITE: "gemini/gemini-2.0-flash-lite",
   LLAMA_4_MAVERICK:
     'fireworks_ai/accounts/fireworks/models/llama4-maverick-instruct-basic',
   QWEN_3_235B: 'fireworks_ai/accounts/fireworks/models/qwen3-235b-a22b',
@@ -85,6 +86,11 @@ export default {
         {
           value: Models.GEMINI_2_5_PRO,
           title: 'Gemini 2.5 Pro',
+          provider: Providers.GOOGLE,
+        },
+        {
+          value: Models.GEMINI_2_0_FLASH_LITE,
+          title: 'Gemini 2.0 Flash Lite',
           provider: Providers.GOOGLE,
         },
         {

@@ -23,6 +23,7 @@
 
 <script>
 import BpmnModeler from 'bpmn-js/lib/Modeler';
+import CustomPallette from './CustomPallette'
 import ChatInterface from '../components/ChatInterface.vue';
 import { bpmnAssistantUrl, bpmnLayoutServerUrl } from '../config';
 import { getApiKeys } from '../utils/apiKeys';
@@ -51,6 +52,7 @@ export default {
   mounted() {
     this.bpmnViewer = new BpmnModeler({
       container: '#canvas',
+      additionalModules: [ CustomPallette ],
     });
 
     // this.bpmnViewer
@@ -134,6 +136,7 @@ export default {
 
         this.bpmnViewer = new BpmnModeler({
           container: '#canvas',
+          additionalModules: [CustomPallette],
         });
         return;
       }
