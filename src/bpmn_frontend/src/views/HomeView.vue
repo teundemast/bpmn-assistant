@@ -24,10 +24,15 @@
 <script>
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import CustomPallette from './CustomPallette'
+import CustomTaskOptions from './CustomTaskOptions';
+import CustomGatewayOptions from './CustomGatewayOptions'
+import CustomEventOptions from './CustomEventOptions';
+import CustomRules from './CustomRules';
+import CustomContextPad from './CustomContextPad';
 import ChatInterface from '../components/ChatInterface.vue';
 import { bpmnAssistantUrl, bpmnLayoutServerUrl } from '../config';
 import { getApiKeys } from '../utils/apiKeys';
-// import initialDiagram from "../assets/initialDiagram.js";
+import initialDiagram from "../assets/initialDiagram.js";
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
@@ -52,19 +57,28 @@ export default {
   mounted() {
     this.bpmnViewer = new BpmnModeler({
       container: '#canvas',
-      additionalModules: [ CustomPallette ],
+      additionalModules: [CustomRules,
+      CustomGatewayOptions,
+      CustomTaskOptions,
+      CustomEventOptions,
+      CustomPallette,
+      CustomContextPad,
+      {
+        paletteProvider: ['value', null]
+      }
+      ],
     });
 
-    // this.bpmnViewer
-    //   .importXML(initialDiagram)
-    //   .then((result) => {
-    //     const { warnings } = result;
-    //     console.log("BPMN diagram imported successfully", warnings);
-    //     this.bpmnViewer.get("canvas").zoom("fit-viewport");
-    //   })
-    //   .catch((err) => {
-    //     console.error("Failed to import BPMN diagram:", err);
-    //   });
+    this.bpmnViewer
+      .importXML(initialDiagram)
+      .then((result) => {
+        const { warnings } = result;
+        console.log("BPMN diagram imported successfully", warnings);
+        this.bpmnViewer.get("canvas").zoom("fit-viewport");
+      })
+      .catch((err) => {
+        console.error("Failed to import BPMN diagram:", err);
+      });
   },
   beforeUnmount() {
     if (this.bpmnViewer) {
@@ -136,7 +150,15 @@ export default {
 
         this.bpmnViewer = new BpmnModeler({
           container: '#canvas',
-          additionalModules: [CustomPallette],
+          additionalModules: [CustomRules,
+          CustomGatewayOptions,
+          CustomTaskOptions,
+          CustomEventOptions,
+          CustomPallette,
+          {
+        paletteProvider: ['value', null]
+          }
+          ],
         });
         return;
       }
